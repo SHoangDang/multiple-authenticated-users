@@ -19,7 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
+
 Route::group(['prefix' => 'admin'], function () {
+
+    Route::get('/logout', 'Auth\AdminController@logout')->name('admin.logout');
 
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
 
